@@ -2,7 +2,7 @@
 
 namespace LeaveManagment.Web.Contracts;
 
-public interface ILeaveTyperRepository : IGenericRepository<LeaveType>
+public interface ILeaveTypeRepository : IGenericRepository<LeaveType>
 {
     
 }

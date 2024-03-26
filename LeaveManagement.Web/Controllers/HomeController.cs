@@ -1,7 +1,6 @@
 using LeaveManagment.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using Microsoft.AspNetCore.Authorization;
 
 namespace LeaveManagment.Web.Controllers
 {
