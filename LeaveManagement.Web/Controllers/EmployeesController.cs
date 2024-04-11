@@ -43,7 +43,7 @@ namespace LeaveManagment.Web.Controllers
         // GET: EmployeesController/EditAllocation/5
         public async Task<ActionResult> EditAllocation(int id)
         {
-            var model = await leaveAllocationRepository.GetEmployeeAllocations(id);
+            var model = await leaveAllocationRepository.GetEmployeeAllocation(id);
             if (model == null)
             {
                 return NotFound();
@@ -71,7 +71,7 @@ namespace LeaveManagment.Web.Controllers
                 ModelState.AddModelError(string.Empty, "An Error Has Occured. Please Try Again Later");
             }
             model.Employee = mapper.Map<EmployeeListVm>(await userManager.FindByIdAsync(model.EmployeeId));
-            model.LeaveType = mapper.Map<LeaveTypeVM>(await leaveTypeRepository.GetAsync(model.LeaveTypeId));
+            model.LeaveType = mapper.Map<LeaveTypeVm>(await leaveTypeRepository.GetAsync(model.LeaveTypeId));
             return View(model);
         }
     }

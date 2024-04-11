@@ -15,5 +15,5 @@ public class LeaveAllocationVm
     [Required]
     [Display(Name = "Allocation Period")]
     public int Period { get; set; }
-    public LeaveTypeVM? LeaveType { get; set; }
+    public LeaveTypeVm? LeaveType { get; set; }
 }

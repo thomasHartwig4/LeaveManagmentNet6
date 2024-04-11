@@ -39,6 +39,7 @@ public class LeaveAllocationRepository : GenericRepository<LeaveAllocation>, ILe
             .Include(q => q.LeaveType)
             .Where(q => q.EmployeeId == employeeId)
             .ToListAsync();
+        
         var employee = await userManager.FindByIdAsync(employeeId);
 
         var employeeAllocationModel = mapper.Map<EmployeeAllocationVm>(employee);
@@ -46,8 +47,8 @@ public class LeaveAllocationRepository : GenericRepository<LeaveAllocation>, ILe
 
         return employeeAllocationModel;
     }
-    
-    public async Task<LeaveAllocationEditVm> GetEmployeeAllocations(int id)
+
+    public async Task<LeaveAllocationEditVm> GetEmployeeAllocation(int id)
     {
         var allocation = await context.LeaveAllocations
             .Include(q => q.LeaveType)
@@ -101,5 +102,10 @@ public class LeaveAllocationRepository : GenericRepository<LeaveAllocation>, ILe
         await UpdateAsync(leaveAllocation);
         
         return true;
+    }
+    
+    public async Task<LeaveAllocation?> GetEmployeeAllocation(string employeeId, int leaveTypeId)
+    {
+        return await context.LeaveAllocations.FirstOrDefaultAsync(q => q.EmployeeId == employeeId && q.LeaveTypeId == leaveTypeId);
     }
 }

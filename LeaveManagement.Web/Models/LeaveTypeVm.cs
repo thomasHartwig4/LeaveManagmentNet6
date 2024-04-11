@@ -2,7 +2,7 @@
 
 namespace LeaveManagment.Web.Models
 {
-    public class LeaveTypeVM
+    public class LeaveTypeVm
     {
         public int Id { get; set; }
         

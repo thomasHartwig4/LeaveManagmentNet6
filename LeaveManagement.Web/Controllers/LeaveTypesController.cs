@@ -29,7 +29,7 @@ namespace LeaveManagment.Web.Controllers
         // GET: LeaveTypes
         public async Task<IActionResult> Index()
         {
-            var leaveTypes = mapper.Map<List<LeaveTypeVM>>(await _leaveTypeRepository.GetAllAsync());
+            var leaveTypes = mapper.Map<List<LeaveTypeVm>>(await _leaveTypeRepository.GetAllAsync());
             return View(leaveTypes);
         }
 
@@ -42,7 +42,7 @@ namespace LeaveManagment.Web.Controllers
                 return NotFound();
             }
 
-            var leaveTypeVm = mapper.Map<LeaveTypeVM>(leaveType);
+            var leaveTypeVm = mapper.Map<LeaveTypeVm>(leaveType);
             return View(leaveTypeVm);
         }
         
@@ -57,7 +57,7 @@ namespace LeaveManagment.Web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(LeaveTypeVM leaveTypeVm)
+        public async Task<IActionResult> Create(LeaveTypeVm leaveTypeVm)
         {
             if (ModelState.IsValid)
             {
@@ -77,7 +77,7 @@ namespace LeaveManagment.Web.Controllers
                 return NotFound();
             }
 
-            var leaveTypeVm = mapper.Map<LeaveTypeVM>(leaveType);
+            var leaveTypeVm = mapper.Map<LeaveTypeVm>(leaveType);
             return View(leaveTypeVm);
         }
 
@@ -86,7 +86,7 @@ namespace LeaveManagment.Web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, LeaveTypeVM leaveTypeVM)
+        public async Task<IActionResult> Edit(int id, LeaveTypeVm leaveTypeVM)
         {
             if (id != leaveTypeVM.Id)
             {
